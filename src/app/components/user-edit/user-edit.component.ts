@@ -5,7 +5,7 @@ import { UserService } from '../../services/user.service';
 import { UploadService } from '../../services/upload.service';
 
 @Component({
-  selector: 'user-edit',
+  selector: 'app-user-edit',
   templateUrl: 'user-edit.component.html',
   providers: [UserService, UploadService]
 })
@@ -42,7 +42,8 @@ export class UserEditComponent implements OnInit {
         if (!response.user) {
           this.status = 'error';
         } else {
-          localStorage.setItem('identity', JSON.stringify(this.user));
+          localStorage.setItem('identity', JSON.stringify(this.user.email));
+          localStorage.setItem('token', JSON.stringify(this.token));
           this.status = 'success';
 
           const imageUrl = `${this.url}upload-image-user/${this.user._id}`;

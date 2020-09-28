@@ -6,7 +6,7 @@ import { fadeIn } from '../../components/animation';
 
 
 @Component({
-  selector: 'teams',
+  selector: 'app-teams',
   templateUrl: './teams.component.html',
   providers: [TeamService],
   animations: [fadeIn]

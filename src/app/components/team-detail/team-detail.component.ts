@@ -5,7 +5,7 @@ import { TeamService } from '../../services/team.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'team-detail',
+  selector: 'app-team-detail',
   templateUrl: './team-detail.component.html',
   providers: [TeamService]
 })

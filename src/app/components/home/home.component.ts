@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { fadeIn } from '../animation';
 
 @Component({
-  selector: 'home',
+  selector: 'app-home',
   templateUrl: './home.component.html',
   animations: [ fadeIn ]
 })

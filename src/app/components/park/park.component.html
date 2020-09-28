@@ -35,10 +35,10 @@
     <div>
         Parent Park Name to pass to the child:
         <input type='text' [(ngModel)]="park" />
-        <h5 *ngIf="nombreDelParque">Child Data: (child component
+        <h5 *ngIf="parkName">Child Data: (child component
             < venue>)</h5>
-        <p *ngIf="nombreDelParque">
-            <parque [nombre]="nombreDelParque" (pasameLosDatos)="showParkData($event)"></parque>
+        <p *ngIf="parkName">
+            <parque [nombre]="parkName" (pasameLosDatos)="parkName($event)"></parque>
         </p>
         <hr>
     </div>
@@ -48,7 +48,7 @@
         <h5 *ngIf="parkNameAsync">Child Data: (child component
             < park>)</h5>
         <p *ngIf="parkNameAsync">
-            <parque [nombre]="parkNameAsync" (pasameLosDatos)="verDatosParque($event)"></parque>
+            <parque [nombre]="parkNameAsync" (pasameLosDatos)="parkName($event)"></parque>
         </p>
         <hr>
     </div>
