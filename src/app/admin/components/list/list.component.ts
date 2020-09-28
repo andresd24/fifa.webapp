@@ -8,8 +8,8 @@ declare var jQuery: any;
 declare var $: any;
 
 @Component({
-  selector: 'admin-list',
-  templateUrl: './list.component.html',
+  selector: 'app-admin-list',
+  templateUrl: '../add/add.component.html',
   providers: [TeamService, UserService, UploadService]
 })
 

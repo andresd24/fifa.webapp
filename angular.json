@@ -13,7 +13,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/zoo_frontend",
+                        "outputPath": "dist/fifa.webapp",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -58,18 +58,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "zoo_frontend:build"
+                        "browserTarget": "fifa.webapp:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "zoo_frontend:production"
+                            "browserTarget": "fifa.webapp:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "zoo_frontend:build"
+                        "browserTarget": "fifa.webapp:build"
                     }
                 },
                 "test": {
@@ -112,11 +112,11 @@
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
                         "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "zoo_frontend:serve"
+                        "devServerTarget": "fifa.webapp:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "zoo_frontend:serve:production"
+                            "devServerTarget": "fifa.webapp:serve:production"
                         }
                     }
                 },

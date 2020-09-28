@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { GLOBAL } from  '../../../services/global';
+import { GLOBAL } from '../../../services/global';
 import { Team } from '../../../models/team';
 import { TeamService } from 'src/app/services/team.service';
 import { UserService } from 'src/app/services/user.service';
 import { UploadService } from 'src/app/services/upload.service';
 
 @Component({
-  selector: 'admin-add',
-  templateUrl: './add.component.html',
+  selector: 'app-admin-add',
+  templateUrl: '../add/add.component.html',
   providers: [TeamService, UserService, UploadService]
 })
 
@@ -28,13 +28,13 @@ export class AddComponent {
     private _uploadService: UploadService
   ) {
     this.title = 'New';
-    this.team = new Team('','', '', '', 2018, '', _userService.get_identity());
+    this.team = new Team('', '', '', '', 2018, '', _userService.get_identity());
     this.identity = this._userService.get_identity();
     this.token = this._userService.get_token();
     this.url = GLOBAL.url;
 
   }
- 
+
   onSubmit() {
 
   this._teamService.add_team(this.token, this.team)

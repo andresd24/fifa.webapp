@@ -1,0 +1,20 @@
+<div class="col-lg-8 col-lg-offset-2" [@fadeIn]>
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        {{message}}
+    </div>
+
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        {{message}}
+    </div>
+    <div class="jumbotron">
+        <h1>Reset Repositories</h1>
+        <p class="btn-toolbar">
+            <button class="btn btn-primary btn-lg" role="button" (click)="resetTeams()">
+          Reset teams repository
+        </button>
+            <button class="btn btn-success btn-lg" role="button" (click)="resetUser()">
+          Reset user repository
+        </button>
+        </p>
+    </div>
+</div>

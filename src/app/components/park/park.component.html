@@ -1,0 +1,55 @@
+<div class="col-lg-12" [@fadeIn]>
+
+    <h3>Store - Implemented by Jquery and Angular</h3>
+    <div>
+        <button id="botonjq">Show text</button>
+        <p id="textojq" class="alert alert-warning">
+            Want to save time on your next order and go directly to this step when checking out?
+        </p>
+    </div>
+    <div style="margin-top:20px;">
+        <button id="botonjqwdelay">Show text with delay</button>
+        <p id="textojqwdelay" class="alert alert-warning">
+            Want to save time on your next order and go directly to this step when checking out?
+        </p>
+    </div>
+
+    <hr>
+
+    <h3>Interaction between Components (child component
+        < parent> inside page
+            < store> who invokes him)</h3>
+
+    <div *ngIf="myPark">
+        <h5>
+            Parent Park Facts: ( container page component
+            < store> )</h5>
+        <ol>
+            <li>Name {{myPark.nombre}}</li>
+            <li>Meters: {{myPark.metros}}</li>
+            <li>Vegetation: {{myPark.vegetacion}}</li>
+            <li>Open: {{myPark.abierto}}</li>
+        </ol>
+    </div>
+
+    <div>
+        Parent Park Name to pass to the child:
+        <input type='text' [(ngModel)]="park" />
+        <h5 *ngIf="nombreDelParque">Child Data: (child component
+            < venue>)</h5>
+        <p *ngIf="nombreDelParque">
+            <parque [nombre]="nombreDelParque" (pasameLosDatos)="showParkData($event)"></parque>
+        </p>
+        <hr>
+    </div>
+    <div>
+        Parent Park Name to pass to the child with delay:
+        <input type='text' (input)="showNameAsync($event.target.value)" />
+        <h5 *ngIf="parkNameAsync">Child Data: (child component
+            < park>)</h5>
+        <p *ngIf="parkNameAsync">
+            <parque [nombre]="parkNameAsync" (pasameLosDatos)="verDatosParque($event)"></parque>
+        </p>
+        <hr>
+    </div>
+</div>

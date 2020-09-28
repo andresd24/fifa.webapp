@@ -1,0 +1,81 @@
+<div class="navigation col-lg-12">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a [routerLink]="['/home']" class="navbar-brand">{{ title }}</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a [routerLink]="['/home']" [routerLinkActive]="['active']">
+                        <span class="glyphicon glyphicon-home"></span> Home
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/teams']" [routerLinkActive]="['active']">
+                        <span class="glyphicon glyphicon-star"></span> Teams
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/admins']" [routerLinkActive]="['active']">
+                        <span class="glyphicon glyphicon-user"></span> Admins
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/parks']" [routerLinkActive]="['active']">
+                        <span class="glyphicon glyphicon-gift"></span> Parks
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/contact']" [routerLinkActive]="['active']">
+                        <span class="glyphicon glyphicon-comment"></span> Contact us</a>
+                </li>
+                <li *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                    <a [routerLink]="['/admin-panel']">
+                        <span class="glyphicon glyphicon-tasks"></span> Control Panel</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" *ngIf="!identity">
+                <li>
+                    <a [routerLink]="['/signup']" [routerLinkActive]="['active']">
+                        <span class="glyphicon glyphicon-user"></span> Sign up
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/login']">
+                        <span class="glyphicon glyphicon-log-in" [routerLinkActive]="['active']"></span> Login
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" *ngIf="identity">
+                <li class="avatar" *ngIf="identity && identity.image && identity.image != 'null'">
+                    <img src="{{ url + 'get-image-file/' + identity.image }}" />
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              {{identity.name}} <span class="caret"></span>
+            </a>
+                    <ul class="dropdown-menu">
+                        <li *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                            <a [routerLink]="['/admin-panel']">
+                                <span class="glyphicon glyphicon-tasks"></span> Control Panel
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/profile']">
+                                <span class="glyphicon glyphicon-cog"></span> My profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pointer" (click)="logout()">
+                                <span class="glyphicon glyphicon-log-out"></span> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="col-lg-11">
+    <router-outlet></router-outlet>
+</div>

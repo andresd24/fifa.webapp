@@ -24,12 +24,12 @@ export class ResetService {
       .pipe(map((res: any) => res));
   }
 
-  resetAnimal() {
+  resetTeams() {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.userService.get_token()}`
     });
-    const url = `${GLOBAL.url}resetanimal`;
+    const url = `${GLOBAL.url}resetteams`;
 
     return this._http
       .post(url, null, { headers: headers })

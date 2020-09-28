@@ -1,0 +1,45 @@
+<div class="col-lg-6">
+    <h1>{{title}}</h1>
+
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        You have saved your information
+    </div>
+
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        Something went wrong and your info couldn't be updated
+    </div>
+
+    <form #userEditForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-10">
+        <p>
+            <label>Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" readonly onfocus="this.removeAttribute('readonly')" required />
+            <span id="name_span" *ngIf="!name.valid && name.touched && (shown != 'true') ">
+          This field is required
+        </span>
+        </p>
+        <p>
+            <label>Lastname</label>
+            <input type="text" name="surname" id="surname" #surname="ngModel" [(ngModel)]="user.surname" class="form-control" readonly onfocus="this.removeAttribute('readonly')" required />
+            <span id="surname_span" *ngIf="!surname.valid && surname.touched && (shown != 'true')">
+          This field is required
+        </span>
+        </p>
+        <p>
+            <label>Email</label>
+            <input type="text" id="email" name="email" #email="ngModel" [(ngModel)]="user.email" readonly onfocus="this.removeAttribute('readonly')" class="form-control" required />
+            <span id="email_span" *ngIf="!email.valid && email.touched && (shown != 'true')">
+          This field is required
+        </span>
+        </p>
+
+        <div class="image_for_edit" *ngIf="user.image && user.image != 'null'">
+            <img src="{{ url + 'get-image-file/' + user.image }}" />
+        </div>
+
+        <p>
+            <label>Upload your Avatar</label>
+            <input type="file" placeholder="Upload Image" (change)="fileChangeEvent($event)" />
+        </p>
+        <input type="submit" value="{{title}}" class="btn btn-primary" />
+    </form>
+</div>

@@ -1,0 +1,40 @@
+<div class="col-lg-10">
+    <h3>{{title}}</h3>
+
+    <form #formAdd="ngForm" (ngSubmit)="onSubmit()">
+        <p>
+            <label>Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="team.name" class="form-control" required />
+            <span *ngIf="!name.valid && name.touched">
+          This field is required
+        </span>
+        </p>
+        <p>
+            <label>League</label>
+            <textarea type="text" name="league" #league="ngModel" [(ngModel)]="team.league" class="form-control" required></textarea>
+            <span *ngIf="!league.valid && league.touched">
+          This field is required
+        </span>
+        </p>
+        <p>
+            <label>Year</label>
+            <input type="text" name="year" #year="ngModel" [(ngModel)]="team.year" class="form-control" required />
+            <span *ngIf="!year.valid && year.touched">
+          This field is required
+        </span>
+        </p>
+
+        <div *ngIf="is_edit && team.image">
+            <div class="image_for_edit">
+                <img src="{{url + 'get-image-team/' + team.image}}" />
+            </div>
+        </div>
+
+        <p>
+            <label>Animal Photo</label>
+            <input type="file" placeholder="Upload image..." (change)="fileChangeEvent($event)" />
+        </p>
+
+        <input type="submit" value="Save" class="btn btn-success">
+    </form>
+</div>

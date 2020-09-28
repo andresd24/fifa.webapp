@@ -9,7 +9,7 @@ import { UploadService } from '../../../services/upload.service';
 
 
 @Component({
-    selector: 'admin-edit',
+    selector: 'app-admin-edit',
     templateUrl: '../add/add.component.html',
     providers: [TeamService, UserService, UploadService]
 })
