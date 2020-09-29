@@ -13,9 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
-import { VenuesComponent } from './components/venues/venues.component';
-import { ParksComponent } from './components/parks/parks.component';
 import { TeamsComponent } from './components/teams/teams.component';
+import { ParkComponent } from './components/park/park.component';
+import { StoreComponent } from './components/store/store.component';
 import { ContactComponent } from './components/contact/contact.component';
 // import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
@@ -33,8 +33,8 @@ import { ResetService } from './services/reset.service';
 @NgModule({
   declarations: [
     AppComponent,
-    VenuesComponent,
-    ParksComponent,
+    ParkComponent,
+    StoreComponent,
     TeamsComponent,
     ContactComponent,
    // KeepersComponent,

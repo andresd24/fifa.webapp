@@ -1,55 +1,31 @@
-import {Component, OnInit } from '@angular/core';
-import { fadeIn } from '../animation';
-import { timeout } from 'q';
-declare var jQuery: any;
-declare var $: any;
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-park',
   templateUrl: './park.component.html',
-  styles: ['h1 {color: blue}'],
-  animations: [ fadeIn ]
 })
 
-export class ParkComponent implements OnInit {
-  public title: string;
-  public parkName: string;
-  public parkNameAsync: string;
-  public myPark: string;
+export class ParkComponent {
+  @Input() name: string;
+  public meters: number;
+  public vegetation: string;
+  public open: boolean;
 
-  private isTimeOutEnabled = false;
+  @Output() passMeTheNewData = new EventEmitter();
+
   constructor() {
-      this.title = 'Park';
+    this.name = 'Horse\'s store';
+    this.meters = 450;
+    this.vegetation = 'High';
+    this.open = true;
   }
 
-  ngOnInit() {
-    $('#textojq').hide();
-    $('#textojqwdelay').hide();
-
-    $('#botonjq').click(function() {
-        $('#textojq').slideToggle();
+  emitEvent() {
+    this.passMeTheNewData.emit({
+      'name': this.name,
+      'meters': this.meters,
+      'vegetation': this.vegetation,
+      'open': this.open
     });
-
-    $('#botonjqwdelay').click(function() {
-      setTimeout(() => {
-        $('#textojqwdelay').slideToggle();
-      }, 40000);
-    });
-
-  }
-
-  showNameAsync(args: string) {
-    if (!this.isTimeOutEnabled) {
-      this.isTimeOutEnabled = true;
-      setTimeout(() => {
-        this.parkNameAsync = args;
-        this.isTimeOutEnabled = false;
-      }, 40000);
-    }
-  }
-
-  showParkData(event) {
-    console.log(event);
-    this.myPark = event;
   }
 }

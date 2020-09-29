@@ -32,7 +32,6 @@ export class UploadService {
       xhr.open('POST', url, true);
 //      xhr.setRequestHeader('Authorization', `Bearer ${token}`);
       xhr.send(formData);
-
     });
   }
 }

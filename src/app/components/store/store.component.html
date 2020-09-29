@@ -1,0 +1,61 @@
+<div class="col-lg-12" [@fadeIn]>
+
+    <h3>Jquery and Angular</h3>
+    <div>
+        <button id="botonjq">Show text immediately</button>
+        <br>
+        <div id="textojq" class="alert alert-success">
+            This text was shown immediately of clicking the above button
+        </div>
+        <br>
+        <div style="margin-top:20px;">
+            <button id="botonjqwdelay">Show text with 20 seconds delay</button>
+            <div id="textojqwdelay" class="alert alert-danger">
+                This text was shown after 20 seconds of clicking the above button
+            </div>
+        </div>
+
+        <!--
+    <hr>
+    <h3>Interaction between Components (child component
+        < parent> inside page
+            < app-store> who invokes him)</h3>
+    <app-park></app-park>
+    <button (click)="emitEvent($event)">Propagate the temporary name of the child < app-park> to a fixed one of the Parent < app-store></button>
+
+
+
+    <div *ngIf="myPark">
+        <h5>
+            Parent Park Facts: ( container page component
+            < app-store> )</h5>
+        <ol>
+            <li>Name {{myPark.name}}</li>
+            <li>Meters: {{myPark.meters}}</li>
+            <li>Vegetation: {{myPark.vegetation}}</li>
+            <li>Open: {{myPark.open}}</li>
+        </ol>
+    </div>
+
+    <div>
+        Parent Park Name to pass to the child:
+        <input type='text' [(ngModel)]="nombreDelParque" />
+        <h5 *ngIf="nombreDelParque">Child Data: (child component
+            < app-park>)</h5>
+        <p *ngIf="nombreDelParque">
+            <app-park [nombre]="nombreDelParque" (passMeTheNewData)="verDatosParque($event)"></app-park>
+        </p>
+        <hr>
+    </div>
+    <div>
+        Parent Park Name to pass to the child with delay:
+        <input type='text' (input)="showNameAsync($event.target.value)" />
+        <h5 *ngIf="parkNameAsync">Child Data: (child component
+            < app-park>)</h5>
+        <p *ngIf="parkNameAsync">
+            <app-park [nombre]="parkNameAsync" (passMeTheNewData)="verDatosParque($event)"></app-park>
+        </p>
+        <hr>
+    </div>
+-->
+    </div>
