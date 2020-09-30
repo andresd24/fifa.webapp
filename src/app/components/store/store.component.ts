@@ -17,6 +17,8 @@ export class StoreComponent implements OnInit {
   public parkNameAsync: string;
   public myPark: string;
 
+  private isDislayButtonText = false;
+
   private isTimeOutEnabled = false;
   constructor() {
       this.titulo = 'Store';
@@ -24,12 +26,13 @@ export class StoreComponent implements OnInit {
 
   ngOnInit() {
     $('#textojq').hide();
-    $('#textojqwdelay').hide();
+
 
     $('#botonjq').click(function() {
         $('#textojq').slideToggle();
     });
 
+    $('#textojqwdelay').hide();
     $('#botonjqwdelay').click(function() {
       setTimeout(() => {
         $('#textojqwdelay').slideToggle();
@@ -38,12 +41,22 @@ export class StoreComponent implements OnInit {
 
   }
 
+  onSubmit() {
+    if (!this.isDislayButtonText) {
+        this.isDislayButtonText = false;
+    }
+    setTimeout(() => {
+        this.isDislayButtonText = true;
+      }, 20000);
+
+  }
+
   showNameAsync(args: string) {
-    if (!this.isTimeOutEnabled) {
-      this.isTimeOutEnabled = true;
+    if (this.isTimeOutEnabled) {
+      this.isTimeOutEnabled = false;
       setTimeout(() => {
         this.parkNameAsync = args;
-        this.isTimeOutEnabled = false;
+        this.isTimeOutEnabled = true;
       }, 40000);
     }
   }
